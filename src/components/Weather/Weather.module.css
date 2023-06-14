@@ -1,0 +1,36 @@
+.wrapper {
+	background-color: #aeb5bf;
+	border-radius: 10px;
+	margin: 1.5rem auto;
+	padding: 1rem;
+	opacity: 0.8;
+	width: 500px;
+	max-width: 80%;
+	box-shadow: 3px 5px 6px #ccc;
+}
+
+.flex {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.name {
+	font-size: 1.6rem;
+	font-weight: 500;
+}
+
+.temp {
+	font-size: 2.6rem;
+}
+
+.desc {
+	text-transform: capitalize;
+	text-align: end;
+}
+
+.icon {
+	position: relative;
+	left: 40%;
+	width: 80px;
+}
