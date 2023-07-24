@@ -14,7 +14,7 @@ function Search() {
 					className={styles.input}
 					id="city-name"
 					type="text"
-					placeholder="i.e. London"
+					placeholder="London"
 					value={city}
 					onChange={(event) => setCity(event.target.value)}
 				/>

@@ -42,3 +42,9 @@ h6 {
 #__next {
 	isolation: isolate;
 }
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

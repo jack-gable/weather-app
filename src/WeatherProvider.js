@@ -7,6 +7,7 @@ function WeatherProvider({ children }) {
 	const [weatherData, setWeatherData] = React.useState([]);
 	const [weatherForecast, setWeatherForecast] = React.useState([]);
 	const [city, setCity] = React.useState("");
+	const [cityLatLon, setCityLatLon] = React.useState([]);
 	const END_POINT_1 = `https://api.openweathermap.org/data/2.5/weather?q=London&units=imperial&appid=${API_KEY}`;
 	const END_POINT_2 = `https://api.openweathermap.org/data/2.5/forecast?q=London&units=imperial&appid=${API_KEY}`;
 
@@ -150,11 +151,42 @@ function WeatherProvider({ children }) {
 			}
 		};
 
+		const getLatLon = async () => {
+			try {
+				const response = await fetch(
+					`https://nominatim.openstreetmap.org/search?city=${encodeURIComponent(
+						city
+					)}&format=json`
+				);
+
+				if (!response.ok) {
+					throw new Error("fetch failed");
+				}
+
+				const data = await response.json();
+
+				if (data.length === 0) {
+					throw new Error("No results found for the given city");
+				}
+
+				const { lat, lon } = data[0];
+				setCityLatLon({
+					latitude: parseFloat(lat),
+					longitude: parseFloat(lon),
+				});
+			} catch (error) {
+				console.log(error);
+			}
+		};
+
+		getLatLon();
+
 		getWeather();
 		getWeather2();
 
 		setCity("");
 	}
+	console.log(cityLatLon);
 	return (
 		<weatherContext.Provider
 			value={{
@@ -165,6 +197,7 @@ function WeatherProvider({ children }) {
 				city,
 				setCity,
 				handleSubmit,
+				cityLatLon,
 			}}
 		>
 			{children}

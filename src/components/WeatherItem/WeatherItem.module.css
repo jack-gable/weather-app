@@ -1,9 +1,9 @@
 .wrapper {
 	background-color: #aeb5bf;
 	border-radius: 10px;
-	padding: 0 1rem 1rem 1rem;
+	padding: 0 0.8rem 1rem;
 	opacity: 0.8;
-	margin: 0.8rem;
+	margin: 0.5rem;
 	width: fit-content;
 	box-shadow: 3px 5px 6px #ccc;
 }
