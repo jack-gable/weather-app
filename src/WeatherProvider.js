@@ -28,7 +28,7 @@ function WeatherProvider({ children }) {
 		};
 
 		getWeather();
-	}, []);
+	}, [END_POINT_1]);
 
 	React.useEffect(() => {
 		const getWeather2 = async () => {
@@ -47,7 +47,7 @@ function WeatherProvider({ children }) {
 		};
 
 		getWeather2();
-	}, []);
+	}, [END_POINT_2]);
 
 	const data = {
 		name: weatherData.name,
