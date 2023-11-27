@@ -22,7 +22,12 @@ export default function WeatherMap({ latitude = 51.5072, longitude = 0.1276 }) {
 			<MapContainer
 				center={position}
 				zoom={13}
-				style={{ width: 400, height: 500, margin: "0 auto", borderRadius: 10 }}
+				style={{
+					width: 300,
+					height: 400,
+					margin: "0 auto",
+					borderRadius: 10,
+				}}
 				key={`${latitude}-${longitude}`}
 			>
 				<TileLayer
